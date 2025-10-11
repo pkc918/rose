@@ -29,22 +29,15 @@ useSeoMeta({
   <UApp>
     <div class="min-h-screen xl:grid xl:grid-cols-2">
       <UPageSection
-        title="Changelog"
-        description="Display GitHub release notes as a beautiful changelog for any repository with this Nuxt UI template."
+        title="青椒肉丝🫑"
+        description="A programmer who is determined to become a big shot. Learning is my never-ending journey!"
         orientation="vertical"
         :links="[{
-          label: 'Documentation',
-          icon: 'i-lucide-book-open',
-          variant: 'ghost',
-          size: 'md',
-          to: 'https://ui.nuxt.com/getting-started/installation/nuxt',
-          target: '_blank'
-        }, {
           label: 'GitHub',
           icon: 'i-simple-icons-github',
           variant: 'ghost',
           size: 'md',
-          to: 'https://github.com/nuxt-ui-templates/changelog',
+          to: 'https://github.com/pkc918',
           target: '_blank'
         }]"
         :ui="{
