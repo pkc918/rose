@@ -27,11 +27,14 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <div min-h-screen>
+    <div min-h-screen grid="~ cols-12 auto-flow-col">
       <NavBar />
-      <section flex="~ justify-center">
+      <section grid="~ col-span-8 justify-center">
         <NuxtPage />
       </section>
+      <div grid="~ col-start-11 col-span-2">
+        广告区
+      </div>
     </div>
   </UApp>
 </template>

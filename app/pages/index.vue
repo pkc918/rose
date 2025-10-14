@@ -21,14 +21,19 @@ const { data: versions } = await useFetch(computed(() => `https://ungh.cc/repos/
 </script>
 
 <template>
-<div w-80vw max-w-80vw min-w-300 min-h-screen flex="~ items-center justify-center">
-    <div w-full h-full flex="~ justify-between">
-        <div class="w-1/2">
-            <h1>Hello World</h1>
-        </div>
-        <div class="w-1/2">
-            <h1>Hello World</h1>
-        </div>
+<div min-h-screen flex="~ col items-center justify-center">
+    <div>
+      <h2>青椒肉丝🫑</h2>
+      <article>
+        <p>一个相当大佬的小白.</p>
+        <p>学无止境！</p>
+      </article>
+      <div>
+        描述xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+    </div>
+    <div>
+      活跃日历
     </div>
 </div>
 </template>
