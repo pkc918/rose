@@ -27,9 +27,9 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <div class="min-h-screen">
+    <div min-h-screen>
       <Header />
-      <section class="px-4 sm:px-6 xl:px-0 xl:-ms-30 xl:flex-1">
+      <section flex="~ justify-center">
         <NuxtPage />
       </section>
     </div>
