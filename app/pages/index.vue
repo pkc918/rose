@@ -27,7 +27,7 @@ nextTick(() => {
 </script>
 
 <template>
-<div min-h-screen grid="~ auto cols-6 ">
+<div min-h-screen flex="~ col">
   <div>
     <h1>Blog</h1>
     <ul>

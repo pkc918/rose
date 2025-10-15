@@ -29,10 +29,12 @@ useSeoMeta({
   <UApp>
     <div min-h-screen grid="~ cols-12 auto-flow-col">
       <NavBar />
-      <section grid="~ col-span-8 justify-center">
-        <NuxtPage />
+      <section grid="~ col-start-2 col-span-9 cols-[1fr_minmax(0,50rem)_1fr]">
+        <div grid="~ col-start-2" px-6>
+          <NuxtPage />
+        </div>
       </section>
-      <div grid="~ col-start-11 col-span-2">
+      <div grid="~ col-span-2">
         广告区
       </div>
     </div>
