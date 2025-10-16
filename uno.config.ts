@@ -21,7 +21,32 @@ export default defineConfig({
       scale: 1,
       warn: true,
     }),
-    presetTypography(),
+    presetTypography({
+      cssExtend: {
+        'code': {
+          color: '#111827',
+          'font-weight': '600',
+          'font-size': '0.875em',
+          'padding': '0.2em 0.4em',
+          'background-color': '#f3f4f6',
+          'border-radius': '0.25rem',
+        },
+        'code::before': {
+          content: '""'
+        },
+        'code::after': {
+          content: '""'
+        },
+        'a': {
+          color: '#00C16A',
+          'text-decoration': 'none',
+          'font-weight': '500',
+        },
+        'a:hover': {
+          color: '#00DC82',
+        },
+      }
+    }),
     presetWebFonts({
       fonts: {
         sans: 'DM Sans',
