@@ -8,10 +8,9 @@ nextTick(() => {
 <template>
 <div min-h-screen flex="~ col">
   <div w-full flex="~ col gap-4">
-    <section text-justify pt-20>
+    <section class="prose prose-truegray dark:prose-invert max-w-none" text-justify pt-20>
       <ContentRenderer v-if="indexContent" :value="indexContent" />
     </section>
-    <GithubContributionGraph />
   </div>
 </div>
 </template>
