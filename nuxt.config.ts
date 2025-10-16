@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     '/': { prerender: true }
   },
   css: ['~/assets/css/main.css'],
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
   mdc: {
     highlight: {
       langs: ['diff', 'ts', 'vue', 'css']
