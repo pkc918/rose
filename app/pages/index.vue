@@ -11,6 +11,7 @@ nextTick(() => {
     <section class="prose prose-truegray dark:prose-invert max-w-none" text-justify pt-20>
       <ContentRenderer v-if="indexContent" :value="indexContent" />
     </section>
+    <FindMe />
   </div>
 </div>
 </template>
