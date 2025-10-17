@@ -65,14 +65,26 @@
 }
 
 .prose a {
-  color: #00C16A;
+  color: #111827;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  border-bottom: 1px solid #111827;
+  transition: all 0.2s;
 }
 
 .prose a:hover {
-  color: #00DC82;
+  color: #374151;
+  border-bottom-color: #374151;
+}
+
+.dark .prose a {
+  color: #f9fafb;
+  border-bottom-color: #f9fafb;
+}
+
+.dark .prose a:hover {
+  color: #d1d5db;
+  border-bottom-color: #d1d5db;
 }
 
 .prose ul,
