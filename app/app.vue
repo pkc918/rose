@@ -11,8 +11,8 @@ useHead({
   }
 })
 
-const title = 'Nuxt Changelog Template'
-const description = 'Display GitHub release notes as a beautiful changelog for any repository with this Nuxt UI template.'
+const title = '青椒肉丝(Rose)'
+const description = 'Rose\'s Blog'
 
 useSeoMeta({
   title,
