@@ -7,14 +7,16 @@ export default defineContentConfig({
       type: 'page',
       source: 'index.md',
     }),
-    blog: defineCollection({
+    blogs: defineCollection({
       type: 'page',
-      source: 'blog/*.md',
+      source: 'blogs/*.md',
       schema: z.object({
-        date: z.string()
+        date: z.string().default(() => new Date().toISOString().split('T')[0]),
+        lang: z.string().default('zh-CN'),
+        duration: z.string().optional(),
       })
     }),
-    diary: defineCollection({
+    diaries: defineCollection({
       type: 'page',
       source: 'diary/*.md',
       // schema: z.object({
