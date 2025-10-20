@@ -10,10 +10,10 @@ function toggleTheme() {
             <img src="/avatar.jpeg" alt="logo" class="w-10 h-10 rounded-full" />
         </div>
         <nav flex="~ col justify-center items-center gap-[1.2rem]" class="[&_a]:w-8 [&_a]:h-8 [&_a]:fcc">
-        <a href="/blog" title="Blog">
+        <a href="/blogs" title="Blog">
             <div w-6 h-6 i-tabler-brand-blogger />
         </a>
-        <a href="/diary" title="Diary">
+        <a href="/diaries" title="Diary">
             <div w-6 h-6 i-tabler-lifebuoy />
         </a>
         <a href="/photos" title="Photos">
