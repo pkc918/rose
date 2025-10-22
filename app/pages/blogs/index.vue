@@ -1,14 +1,5 @@
 <script setup lang="ts">
-const { data: blogs } = await useAsyncData('blogs', () => queryCollection('blogs' as any).all())
-
-// 格式化日期为 "Apr 28" 格式
-function formatDate(dateString: string) {
-  if (!dateString) return ''
-  const date = new Date(dateString)
-  const month = date.toLocaleDateString('en-US', { month: 'short' })
-  const day = date.getDate()
-  return `${month} ${day}`
-}
+const { data: blogs } = await useAsyncData('xxx', () => queryCollection('blogs' as any).all())
 
 // 获取语言标签显示文本
 function getLangLabel(lang: string) {
@@ -26,8 +17,8 @@ function getLangLabel(lang: string) {
   <div flex="~ col" gap-3 max-w-4xl>
     <NuxtLink
       v-for="blog in blogs"
-      :key="blog._id"
-      :to="`/blogs/${blog._id}`"
+      :key="blog.title"
+      :to="blog.path"
       flex="~ items-center justify-start gap-2"
       py-2
       border-b border-transparent
@@ -36,6 +27,7 @@ function getLangLabel(lang: string) {
       transition-all
       group
     >
+    {{ blog }}
       <div flex="~ items-center gap-3">
         <span
           v-if="blog.lang && blog.lang !== 'zh-CN'"
