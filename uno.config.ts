@@ -38,12 +38,22 @@ export default defineConfig({
           content: '""'
         },
         'a': {
-          color: '#00C16A',
+          color: '#000000',
           'text-decoration': 'none',
           'font-weight': '500',
         },
         'a:hover': {
-          color: '#00DC82',
+          color: '#333333',
+        },
+        '.dark code': {
+          color: '#ffffff',
+          'background-color': '#2a2a2a',
+        },
+        '.dark a': {
+          color: '#ffffff',
+        },
+        '.dark a:hover': {
+          color: '#cccccc',
         },
       }
     }),

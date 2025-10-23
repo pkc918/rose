@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/mdc',
     '@unocss/nuxt',
+    '@nuxtjs/color-mode',
   ],
   devtools: { enabled: true },
   routeRules: {
@@ -18,6 +19,11 @@ export default defineNuxtConfig({
     highlight: {
       langs: ['diff', 'ts', 'vue', 'css']
     },
+  },
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light'
   },
   vite: {
   },

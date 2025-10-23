@@ -22,8 +22,8 @@ function getLangLabel(lang: string) {
       flex="~ items-center justify-start gap-2"
       py-2
       border-b border-transparent
-      hover:border-gray-200
-      dark:hover:border-gray-800
+      hover:border-gray-300
+      dark:hover:border-gray-700
       transition-all
       group
     >
@@ -32,20 +32,20 @@ function getLangLabel(lang: string) {
           v-if="blog.lang && blog.lang !== 'zh-CN'"
           text-xs
           opacity-50
-          class="lang-tag"
+          class="lang-tag text-gray-600 dark:text-gray-500"
         >
           {{ getLangLabel(blog.lang) }}
         </span>
         <span 
           text-lg
-          group-hover:text-primary
+          class="text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-400"
           transition-colors
         >
           {{ blog.title }}
         </span>
       </div>
       
-      <div flex="~ items-center gap-2" text-sm opacity-50 ws-nowrap>
+      <div flex="~ items-center gap-2" text-sm opacity-50 ws-nowrap class="text-gray-600 dark:text-gray-500">
         <span v-if="blog.date">{{ formatDate(blog.date) }}</span>
         <span v-if="blog.date && blog.duration">·</span>
         <span v-if="blog.duration">{{ blog.duration }}</span>
