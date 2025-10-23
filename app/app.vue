@@ -26,7 +26,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <UApp>
+  <UApp class="font-['DM_Mono','monospace']">
     <div min-h-screen grid="~ cols-12 auto-flow-col">
       <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10">
         <NavBar />
