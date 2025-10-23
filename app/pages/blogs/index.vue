@@ -27,7 +27,6 @@ function getLangLabel(lang: string) {
       transition-all
       group
     >
-    {{ blog }}
       <div flex="~ items-center gap-3">
         <span
           v-if="blog.lang && blog.lang !== 'zh-CN'"

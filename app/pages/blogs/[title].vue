@@ -12,16 +12,15 @@ const { data: blog } = await useAsyncData(route.path, () => {
 <template>
 <div min-h-screen flex="~ col" py-10>
   <section class="prose prose-truegray dark:prose-invert max-w-none" text-justify pt-20>
-    <h1>{{ blog.title }}</h1>
-    <div>
-      <span>{{ blog.lang }}</span>
-      <span>{{ blog.date }}</span>
-      <span>{{ blog.duration }}</span>
+    <div class="mb-20">
+      <h1 class="mb-0!">{{ blog.title }}</h1>
+      <div flex="~ items-center gap-4" font-mono text-xs opacity-50>
+        <span>{{ formatDate(blog.date) }}</span>
+        <span>{{ blog.duration }}</span>
+      </div>
     </div>
+
     <ContentRenderer v-if="blog" :value="blog" />
-      <!-- <ContentRenderer v-if="blog" :value="blog">
-        <template #toc="{ value }">123</template>
-      </ContentRenderer> -->
     </section>
 </div>
 </template>
