@@ -148,13 +148,18 @@
 }
 
 .prose pre {
-  background-color: #1f2937;
+  opacity: 0.8;
+  background-color: #eeeeee;
   color: #e5e7eb;
   overflow-x: auto;
   border-radius: 0.5rem;
   padding: 1em;
   margin-top: 1.7em;
   margin-bottom: 1.7em;
+  font-size: 1em;
+  font-family: 'DM Mono', monospace;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .prose pre code {
@@ -168,6 +173,21 @@
   margin-top: 2em;
   margin-bottom: 2em;
   border-radius: 0.5rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.prose table {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+.prose * {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .prose hr {
