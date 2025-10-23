@@ -31,8 +31,8 @@ useSeoMeta({
       <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10">
         <NavBar />
       </div>
-      <section grid="~ col-start-2 col-span-9 cols-[1fr_minmax(0,50rem)_1fr]">
-        <div grid="~ col-start-2" px-6>
+      <section grid="~ col-start-2 col-span-9 cols-[1fr_minmax(0,50rem)_1fr]" min-w-0>
+        <div grid="~ col-start-2" px-6 min-w-0>
           <NuxtPage />
         </div>
       </section>
