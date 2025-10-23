@@ -28,7 +28,9 @@ useSeoMeta({
 <template>
   <UApp>
     <div min-h-screen grid="~ cols-12 auto-flow-col">
-      <NavBar />
+      <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10">
+        <NavBar />
+      </div>
       <section grid="~ col-start-2 col-span-9 cols-[1fr_minmax(0,50rem)_1fr]">
         <div grid="~ col-start-2" px-6>
           <NuxtPage />
