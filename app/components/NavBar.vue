@@ -2,11 +2,15 @@
 function toggleTheme() {
     // useNuxtApp().$toggleTheme()
 }   
+
+function backHome() {
+    navigateTo('/')
+}
 </script>
 
 <template>
     <div flex="~ col justify-center items-center gap-[1.2rem]">
-        <div rounded-full border="~ 2px solid black-200" class="fcc">
+        <div rounded-full border="~ 2px solid black-200" class="fcc cursor-pointer" @click="backHome">
             <img src="/avatar.jpeg" alt="logo" class="w-10 h-10 rounded-full" />
         </div>
         <nav flex="~ col justify-center items-center gap-[1.2rem]" class="[&_a]:w-8 [&_a]:h-8 [&_a]:fcc">
