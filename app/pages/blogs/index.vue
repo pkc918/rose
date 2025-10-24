@@ -16,7 +16,7 @@ function getLangLabel(lang: string) {
 <div min-h-screen flex="~ col" py-10 pt-40>
   <div flex="~ col" gap-3 max-w-4xl>
     <NuxtLink
-      v-for="blog in blogs"
+      v-for="(blog, index) in blogs"
       :key="blog.title"
       :to="blog.path"
       flex="~ items-center justify-start gap-2"
@@ -26,6 +26,8 @@ function getLangLabel(lang: string) {
       dark:hover:border-gray-700
       transition-all
       group
+      class="blog-item"
+      :style="{ animationDelay: `${index * 0.1}s` }"
     >
       <div flex="~ items-center gap-3">
         <span
@@ -54,3 +56,21 @@ function getLangLabel(lang: string) {
   </div>
 </div>
 </template>
+
+<style scoped>
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+</style>
