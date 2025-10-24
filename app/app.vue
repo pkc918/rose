@@ -37,7 +37,7 @@ useSeoMeta({
         </div>
       </section>
       <div grid="~ col-span-2" class="text-gray-600 dark:text-gray-500">
-        Projects
+        <!-- Projects -->
       </div>
     </div>
   </UApp>
