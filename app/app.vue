@@ -1,6 +1,4 @@
 <script setup>
-import { VercelSpeedInsights } from '@vercel/speed-insights/nuxt'
-
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -35,7 +33,6 @@ useSeoMeta({
       </div>
       <section grid="~ col-start-2 col-span-9 cols-[1fr_minmax(0,50rem)_1fr]" min-w-0>
         <div grid="~ col-start-2" px-6 min-w-0>
-          <VercelSpeedInsights />
           <NuxtPage />
         </div>
       </section>
