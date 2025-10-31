@@ -1,14 +1,17 @@
 {
   "name": "rose",
   "type": "module",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@10.12.2+sha512.a32540185b964ee30bb4e979e405adc6af59226b438ee4cc19f9e8773667a66d302f5bfee60a39d3cac69e35e4b96e708a71dd002b7e9359c4112a1722ac323f",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@nuxt/content": "^3.7.1",
@@ -19,13 +22,14 @@
     "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   },
-  "packageManager": "pnpm@10.12.2+sha512.a32540185b964ee30bb4e979e405adc6af59226b438ee4cc19f9e8773667a66d302f5bfee60a39d3cac69e35e4b96e708a71dd002b7e9359c4112a1722ac323f",
   "devDependencies": {
+    "@antfu/eslint-config": "^6.2.0",
     "@iconify-json/tabler": "^1.2.23",
     "@unocss/nuxt": "^66.5.3",
     "@unocss/preset-icons": "^66.5.3",
     "@unocss/reset": "^66.5.3",
     "dayjs": "^1.11.18",
+    "eslint": "^9.38.0",
     "unocss": "^66.5.3",
     "zod": "^4.1.12"
   }
