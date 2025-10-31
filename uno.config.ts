@@ -6,7 +6,7 @@ import {
   presetUno,
   presetWebFonts,
   transformerDirectives,
-  transformerVariantGroup
+  transformerVariantGroup,
 } from 'unocss'
 
 export default defineConfig({
@@ -24,7 +24,7 @@ export default defineConfig({
     presetTypography({
       cssExtend: {
         'code': {
-          color: '#111827',
+          'color': '#111827',
           'font-weight': '600',
           'font-size': '0.875em',
           'padding': '0.2em 0.4em',
@@ -32,13 +32,13 @@ export default defineConfig({
           'border-radius': '0.25rem',
         },
         'code::before': {
-          content: '""'
+          content: '""',
         },
         'code::after': {
-          content: '""'
+          content: '""',
         },
         'a': {
-          color: '#000000',
+          'color': '#000000',
           'text-decoration': 'none',
           'font-weight': '500',
         },
@@ -46,7 +46,7 @@ export default defineConfig({
           color: '#333333',
         },
         '.dark code': {
-          color: '#ffffff',
+          'color': '#ffffff',
           'background-color': '#2a2a2a',
         },
         '.dark a': {
@@ -55,7 +55,7 @@ export default defineConfig({
         '.dark a:hover': {
           color: '#cccccc',
         },
-      }
+      },
     }),
     presetWebFonts({
       fonts: {
@@ -81,8 +81,8 @@ export default defineConfig({
           color: inherit;
           text-decoration: none;
         }
-      `
-    }
+      `,
+    },
   ],
   transformers: [
     transformerDirectives(),

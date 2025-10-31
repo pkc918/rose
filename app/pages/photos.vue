@@ -26,14 +26,14 @@ console.log('Photos Data:', photosData.value)
 if (photosData.value) {
   console.log('Success:', photosData.value.success)
   console.log('Total months:', photosData.value.data.length)
-  
+
   photosData.value.data.forEach((month, index) => {
     console.log(`Month ${index + 1}: ${month.month}`)
     console.log(`  - Images count: ${month.images.length}`)
     month.images.forEach((img, imgIndex) => {
       console.log(`    Image ${imgIndex + 1}:`, {
         name: img.name,
-        url: img.url
+        url: img.url,
       })
     })
   })
@@ -49,9 +49,10 @@ watch(photosData, (newData) => {
 // 格式化月份显示
 function formatMonth(month: string) {
   const [year, monthNum] = month.split('-')
-  if (!monthNum) return month
+  if (!monthNum)
+    return month
   const monthNames = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
-  return `${year}年 ${monthNames[parseInt(monthNum) - 1]}`
+  return `${year}年 ${monthNames[Number.parseInt(monthNum) - 1]}`
 }
 
 // 图片预览
@@ -89,15 +90,21 @@ onMounted(() => {
 
       <!-- 错误状态 -->
       <div v-else-if="error" text-center py-20 class="text-red-600 dark:text-red-400">
-        <p text-lg mb-4>加载图片失败</p>
-        <p text-sm opacity-70>{{ error }}</p>
-        <p text-sm mt-4 opacity-70>请尝试重启开发服务器</p>
+        <p text-lg mb-4>
+          加载图片失败
+        </p>
+        <p text-sm opacity-70>
+          {{ error }}
+        </p>
+        <p text-sm mt-4 opacity-70>
+          请尝试重启开发服务器
+        </p>
       </div>
 
       <!-- 相册内容 -->
       <div v-else-if="photosData?.success && photosData.data.length > 0" flex="~ col" gap-16>
-        <div 
-          v-for="(monthData, monthIndex) in photosData.data" 
+        <div
+          v-for="(monthData, monthIndex) in photosData.data"
           :key="monthData.month"
           class="month-section"
           :style="{ animationDelay: `${monthIndex * 0.1}s` }"
@@ -108,8 +115,8 @@ onMounted(() => {
           </h2>
 
           <!-- 图片网格 -->
-          <div 
-            grid 
+          <div
+            grid
             gap-4
             class="grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
           >
@@ -124,7 +131,7 @@ onMounted(() => {
                 :src="photo.url"
                 :alt="photo.name"
                 class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-              />
+              >
             </div>
           </div>
         </div>
@@ -132,7 +139,9 @@ onMounted(() => {
 
       <!-- 空状态 -->
       <div v-else text-center py-20 class="text-gray-600 dark:text-gray-400">
-        <p text-lg>还没有照片</p>
+        <p text-lg>
+          还没有照片
+        </p>
         <p text-sm mt-2 opacity-70>
           请在 <code class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">public/photos/</code> 目录下按月份创建文件夹并添加图片
         </p>
@@ -150,8 +159,8 @@ onMounted(() => {
           bg-opacity-90
           z-50
           flex="~ items-center justify-center"
-          @click="closeImage"
           class="cursor-zoom-out"
+          @click="closeImage"
         >
           <img
             :src="selectedImage"
@@ -160,7 +169,7 @@ onMounted(() => {
             max-w-90vw
             class="object-contain"
             @click.stop
-          />
+          >
           <button
             absolute
             top-4
@@ -212,4 +221,3 @@ onMounted(() => {
   opacity: 0;
 }
 </style>
-

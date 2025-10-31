@@ -41,4 +41,3 @@ cp ~/Downloads/my-photo.jpg public/photos/2025-11/
 ```
 
 访问相册页面：`http://localhost:3000/photos`
-

@@ -15,7 +15,7 @@ export default defineContentConfig({
         date: z.date(),
         lang: z.string().default('zh-CN'),
         duration: z.string().optional(),
-      })
+      }),
     }),
     diaries: defineCollection({
       type: 'page',
@@ -25,7 +25,7 @@ export default defineContentConfig({
         date: z.date(),
         lang: z.string().default('zh-CN'),
         duration: z.string().optional(),
-      })
-    })
-  }
+      }),
+    }),
+  },
 })

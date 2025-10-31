@@ -15,7 +15,7 @@ I enjoy turning ideas into code — from random little tools to projects that mi
 
 After work, my life switches from frontend to front-running:
 - I debug my thoughts while **running** 🏃
-- Tune my mood while playing **guitar** 🎸 
+- Tune my mood while playing **guitar** 🎸
 - Capture life's bugs through my **camera** 📷
 - Edit time itself while cutting **videos** 🎬
 
@@ -23,7 +23,7 @@ My idol is [antfu](https://antfu.me), and my goal is to write code that's just a
 
 ---
 
-If you're in Hangzhou too, let's grab a coffee sometime ☕  
+If you're in Hangzhou too, let's grab a coffee sometime ☕
 We can talk about code, creativity, or the next commit that might change the world.
 
 <FindMe />

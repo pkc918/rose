@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   routeRules: {
-    '/': { prerender: true }
+    '/': { prerender: true },
   },
   css: ['~/assets/css/main.css'],
   content: {
@@ -17,13 +17,13 @@ export default defineNuxtConfig({
   },
   mdc: {
     highlight: {
-      langs: ['diff', 'ts', 'vue', 'css']
+      langs: ['diff', 'ts', 'vue', 'css'],
     },
   },
   colorMode: {
     classSuffix: '',
     preference: 'system',
-    fallback: 'light'
+    fallback: 'light',
   },
   vite: {
   },

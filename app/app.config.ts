@@ -3,15 +3,15 @@ export default defineAppConfig({
   ui: {
     colors: {
       primary: 'green',
-      neutral: 'black'
+      neutral: 'black',
     },
     prose: {
       li: {
-        base: 'break-words'
+        base: 'break-words',
       },
       a: {
-        base: 'break-words'
-      }
-    }
-  }
+        base: 'break-words',
+      },
+    },
+  },
 })
