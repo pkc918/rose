@@ -19,7 +19,7 @@ date: 2025-10-23
 
 - [`injectLocal`](https://vueuse.org/shared/injectLocal/)-extended `inject` with ability to call `provideLocal` to provide the value in the same component
 
-- [`provideLocal`](https://vueuse.org/shared/provideLocal/)-extended `provide` with ability to call `injectLocal` to obtain the value in the same component
+- [`provideLocal`](https://vueuse.org/shared/provideLocal/)-extended `provide` with ability to call `injectLocal` to obtain the value in the same component
 
 - [`useAsyncState`](https://vueuse.org/core/useAsyncState/)-reactive async state
 
