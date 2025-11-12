@@ -9,7 +9,7 @@ export default rose(
     ignores: [
       '**/types',
       '**/*.svg',
-      'packages/templates/**',
+      'content/**',
     ],
   },
   {
@@ -30,6 +30,7 @@ export default rose(
       'ts/no-dynamic-delete': 'off',
       'eqeqeq': 'off',
       'no-async-promise-executor': 'off',
+      'no-console': 'off',
     },
   },
 )

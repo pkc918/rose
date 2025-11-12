@@ -66,8 +66,8 @@ function calculateCellSize() {
 
   const containerWidth = containerRef.value.offsetWidth
   const weekCount = weeks.value.length
-  const monthLabelHeight = 24 // 月份标签高度
-  const legendHeight = 32 // 图例高度
+  // const monthLabelHeight = 24 // 月份标签高度
+  // const legendHeight = 32 // 图例高度
 
   // 计算最适合的格子大小
   // 公式: (cellSize + gap) * weekCount = containerWidth
@@ -138,9 +138,9 @@ const totalContributions = computed(() => {
 })
 
 // 计算月份标签位置
-function getMonthOffset(offset: number) {
-  return `${offset * (cellSize.value + gap.value)}px`
-}
+// function getMonthOffset(offset: number) {
+//   return `${offset * (cellSize.value + gap.value)}px`
+// }
 </script>
 
 <template>
