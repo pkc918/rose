@@ -8,7 +8,7 @@ nextTick(() => {
 <template>
   <div min-h-screen flex="~ col" class="text-black dark:text-white">
     <div w-full flex="~ col gap-4">
-      <section class="prose prose-truegray dark:prose-invert max-w-none content-section" text-left py-5 md:py-20>
+      <section class="prose prose-truegray dark:prose-invert max-w-none content-section" text-left py-2 md:py-5>
         <ContentRenderer v-if="indexContent" :value="indexContent" />
       </section>
     </div>
