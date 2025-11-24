@@ -12,13 +12,13 @@ const { data: blog } = await useAsyncData(route.path, () => {
 </script>
 
 <template>
-  <div min-h-screen min-w-0 flex="~ col" py-10>
-    <section class="prose prose-truegray dark:prose-invert max-w-full! text-justify pt-20 content-section">
-      <div class="mb-20 blog-header">
-        <h1 class="mb-0! text-black dark:text-white">
+  <div min-h-screen min-w-0 flex="~ col" py-6 sm:py-8 md:py-10>
+    <section class="prose prose-truegray dark:prose-invert max-w-full! text-justify pt-6 sm:pt-10 md:pt-20 content-section">
+      <div class="mb-10 sm:mb-16 md:mb-20 blog-header">
+        <h1 class="mb-0! text-black dark:text-white text-2xl sm:text-3xl md:text-4xl">
           {{ blog?.title }}
         </h1>
-        <div class="mt-5 text-gray-600 dark:text-gray-500" flex="~ items-center gap-4" font-mono text-xs opacity-50>
+        <div class="mt-4 sm:mt-5 text-gray-600 dark:text-gray-500" flex="~ items-center gap-3 sm:gap-4" font-mono text-xs sm:text-sm opacity-50>
           <span>{{ blog?.date ? formatDate(blog.date) : '' }}</span>
           <span>{{ blog?.duration }}</span>
         </div>

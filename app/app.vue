@@ -27,7 +27,31 @@ useSeoMeta({
 
 <template>
   <UApp class="font-['DM_Mono','monospace'] bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
-    <div min-h-screen grid="~ cols-12 auto-flow-col">
+    <!-- 移动端布局 -->
+    <div class="block md:hidden min-h-screen">
+      <div class="pb-20">
+        <div px-4 sm:px-6>
+          <NuxtPage />
+        </div>
+      </div>
+      <!-- 移动端底部导航栏 -->
+      <div
+        fixed
+        bottom-0
+        left-0
+        right-0
+        z-50
+        flex="~ justify-center items-center"
+        class="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800"
+        py-3
+        px-4
+      >
+        <NavBar />
+      </div>
+    </div>
+
+    <!-- 桌面端布局 -->
+    <div class="hidden md:block min-h-screen grid grid-cols-12 auto-flow-col">
       <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10 bg-white dark:bg-black">
         <NavBar />
       </div>
