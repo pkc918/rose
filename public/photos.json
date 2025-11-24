@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "data": [
+    {
+      "month": "2025-10",
+      "images": [
+        {
+          "name": "6111761651760_.pic_hd.jpg",
+          "url": "/photos/2025-10/6111761651760_.pic_hd.jpg",
+          "month": "2025-10"
+        }
+      ]
+    },
+    {
+      "month": "2025-09",
+      "images": [
+        {
+          "name": "6121761651761_.pic_hd.jpg",
+          "url": "/photos/2025-09/6121761651761_.pic_hd.jpg",
+          "month": "2025-09"
+        }
+      ]
+    }
+  ]
+}

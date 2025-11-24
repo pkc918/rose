@@ -13,6 +13,15 @@ export default rose(
     ],
   },
   {
+    files: [
+      '**/*.json',
+      '**/*.md',
+    ],
+    rules: {
+      'style/eol-last': 'off',
+    },
+  },
+  {
     rules: {
       'vue/no-deprecated-functional-template': 'off',
       'vue/one-component-per-file': 'off',

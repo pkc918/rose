@@ -15,7 +15,7 @@ interface PhotosResponse {
   data: PhotoMonth[]
 }
 
-const { data: photosData, pending, error } = await useFetch<PhotosResponse>('/api/photos')
+const { data: photosData, pending, error } = await useFetch<PhotosResponse>('/photos.json')
 
 // 详细的调试信息
 console.log('=== Photos Page Debug Info ===')
