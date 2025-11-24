@@ -88,7 +88,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div min-h-screen flex="~ col" py-6 sm:py-8 md:py-10 pt-6 md:pt-20>
+  <div min-h-screen flex="~ col" py-6 sm:py-8 md:py-10 pt-6 md:pt-40>
     <div max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8>
       <h1
         text-2xl sm:text-3xl lg:text-4xl

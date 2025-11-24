@@ -13,7 +13,7 @@ function getLangLabel(lang: string) {
 </script>
 
 <template>
-  <div min-h-screen flex="~ col" py-6 sm:py-8 md:py-10 pt-6 md:pt-20>
+  <div min-h-screen flex="~ col" py-6 sm:py-8 md:py-10 pt-6 md:pt-40>
     <div flex="~ col" gap-3 max-w-4xl w-full>
       <NuxtLink
         v-for="(diary, index) in diaries"
@@ -39,15 +39,15 @@ function getLangLabel(lang: string) {
             {{ getLangLabel(diary.lang) }}
           </span>
           <span
-            text-base sm:text-lg
-            class="text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-400 truncate sm:overflow-visible"
+            text-base md:text-lg
+            class="text-black dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-400 truncate md:overflow-visible"
             transition-colors
           >
             {{ diary.title }}
           </span>
         </div>
 
-        <div flex="~ items-center gap-2" text-xs sm:text-sm opacity-50 ws-nowrap class="text-gray-600 dark:text-gray-500 flex-shrink-0">
+        <div flex="~ items-center gap-2" text-xs md:text-sm opacity-50 ws-nowrap class="text-gray-600 dark:text-gray-500 flex-shrink-0">
           <span v-if="diary.date">{{ formatDate(diary.date) }}</span>
           <span v-if="diary.date && diary.duration">·</span>
           <span v-if="diary.duration">{{ diary.duration }}</span>

@@ -28,7 +28,7 @@ useSeoMeta({
 <template>
   <UApp class="font-['DM_Mono','monospace'] bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
     <!-- 移动端布局 -->
-    <div class="block md:hidden min-h-screen">
+    <div class="md:hidden min-h-screen">
       <div class="pb-20">
         <div px-4 sm:px-6>
           <NuxtPage />
@@ -51,7 +51,7 @@ useSeoMeta({
     </div>
 
     <!-- 桌面端布局 -->
-    <div class="hidden md:block min-h-screen grid grid-cols-12 auto-flow-col">
+    <div class="hidden md:grid min-h-screen" grid="~ cols-12 auto-flow-col">
       <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10 bg-white dark:bg-black">
         <NavBar />
       </div>
