@@ -14,6 +14,9 @@ function getLangLabel(lang: string) {
 
 <template>
   <div min-h-screen flex="~ col" py-6 sm:py-8 md:py-10 pt-6 md:pt-40>
+    <h1 class="text-5xl font-bold mb-10">
+      Diaries
+    </h1>
     <div flex="~ col" gap-3 max-w-4xl w-full>
       <NuxtLink
         v-for="(diary, index) in diaries"
