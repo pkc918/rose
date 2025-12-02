@@ -4,8 +4,8 @@ import { formatDate } from '~/utils/formatTime'
 const route = useRoute()
 
 // 获取具体的博客内容
-const { data: blog } = await useAsyncData(route.path, () => {
-  return queryCollection('blogs' as any)
+const { data: diary } = await useAsyncData(route.path, () => {
+  return queryCollection('diaries' as any)
     .path(route.path)
     .first()
 })
@@ -16,15 +16,15 @@ const { data: blog } = await useAsyncData(route.path, () => {
     <section class="prose prose-truegray dark:prose-invert max-w-full! text-justify pt-6 sm:pt-10 md:pt-20 content-section">
       <div class="mb-10 sm:mb-16 md:mb-20 blog-header">
         <h1 class="mb-0! text-black dark:text-white">
-          {{ blog?.title }}
+          {{ diary?.title }}
         </h1>
         <div class="mt-4 sm:mt-5 text-gray-600 dark:text-gray-500" flex="~ items-center gap-3 sm:gap-4" font-mono text-xs opacity-50>
-          <span>{{ blog?.date ? formatDate(blog.date) : '' }}</span>
-          <span>{{ blog?.duration }}</span>
+          <span>{{ diary?.date ? formatDate(diary.date) : '' }}</span>
+          <span>{{ diary?.duration }}</span>
         </div>
       </div>
 
-      <ContentRenderer v-if="blog" :value="blog" />
+      <ContentRenderer v-if="diary" :value="diary" />
     </section>
   </div>
 </template>
