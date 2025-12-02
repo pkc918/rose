@@ -1,6 +1,4 @@
 ---
-theme: z-blue
-highlight: agate
 title: Cursor一些实用的姿势
 date: 2025-11-12
 ---
