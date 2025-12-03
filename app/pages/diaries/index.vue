@@ -1,5 +1,9 @@
 <script setup lang="ts">
-const { data: diaries } = await useAsyncData('xxx', () => queryCollection('diaries' as any).all())
+const { data: diaries } = await useAsyncData('xxx', async () => {
+  const allDiaries = await queryCollection('diaries' as any).all()
+  // 按日期降序排序，最新的在最上方
+  return allDiaries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+})
 
 // 获取语言标签显示文本
 function getLangLabel(lang: string) {
