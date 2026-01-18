@@ -24,14 +24,13 @@
       </a>
 
       <a
-        href="https://github.com/pkc918"
         target="_blank"
         flex="~ items-center gap-1"
         text-xs sm:text-sm
         class="whitespace-nowrap"
       >
         <div w-5 h-5 sm:w-6 sm:h-6 i-tabler-brand-discord flex-shrink-0 />
-        <div>Discord</div>
+        <div>pkc918</div>
       </a>
 
       <a
