@@ -1,8 +1,58 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
+const isAnimating = ref(false)
 
-function toggleTheme() {
-  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+async function toggleTheme(event: MouseEvent) {
+  if (isAnimating.value)
+    return
+
+  const isAppearanceTransition = document.startViewTransition
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (!isAppearanceTransition) {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+    return
+  }
+
+  isAnimating.value = true
+
+  const x = event.clientX
+  const y = event.clientY
+  const endRadius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y),
+  )
+
+  const transition = document.startViewTransition(async () => {
+    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+    await nextTick()
+  })
+
+  transition.ready.then(() => {
+    const clipPath = [
+      `circle(0px at ${x}px ${y}px)`,
+      `circle(${endRadius}px at ${x}px ${y}px)`,
+    ]
+    document.documentElement.animate(
+      {
+        clipPath: colorMode.value === 'dark'
+          ? [...clipPath].reverse()
+          : clipPath,
+      },
+      {
+        duration: 400,
+        easing: 'ease-out',
+        fill: 'forwards',
+        pseudoElement: colorMode.value === 'dark'
+          ? '::view-transition-old(root)'
+          : '::view-transition-new(root)',
+      },
+    )
+  })
+
+  transition.finished.then(() => {
+    isAnimating.value = false
+  })
 }
 
 function backHome() {
