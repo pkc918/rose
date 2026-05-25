@@ -80,9 +80,6 @@ function backHome() {
       <a hover:scale-125 duration-300 href="/diaries" title="Diary">
         <div w-5 h-5 sm:w-6 sm:h-6 i-tabler-lifebuoy />
       </a>
-      <a hover:scale-125 duration-300 href="/photos" title="Photos">
-        <div w-5 h-5 sm:w-6 sm:h-6 i-tabler-brand-google-photos />
-      </a>
       <a hover:scale-125 duration-300 href="https://github.com/pkc918" target="_blank" title="Github">
         <div w-5 h-5 sm:w-6 sm:h-6 i-tabler-brand-github />
       </a>
@@ -103,9 +100,6 @@ function backHome() {
       </a>
       <a hover:scale-140 duration-300 href="/diaries" title="Diary">
         <div w-6 h-6 i-tabler-lifebuoy />
-      </a>
-      <a hover:scale-140 duration-300 href="/photos" title="Photos">
-        <div w-6 h-6 i-tabler-brand-google-photos />
       </a>
       <a hover:scale-140 duration-300 href="https://github.com/pkc918" target="_blank" title="Github">
         <div w-6 h-6 i-tabler-brand-github />
