@@ -14,6 +14,11 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   content: {
     experimental: { sqliteConnector: 'native' },
+    build: {
+      markdown: {
+        toc: { depth: 3 },
+      },
+    },
   },
   mdc: {
     highlight: {
