@@ -5,6 +5,17 @@ const { data: diaries } = await useAsyncData('xxx', async () => {
   return allDiaries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 })
 
+const title = 'Diaries'
+const description = 'Personal diaries and everyday notes from Rose.'
+
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogType: 'website',
+})
+
 // 获取语言标签显示文本
 function getLangLabel(lang: string) {
   const langMap: Record<string, string> = {

@@ -13,13 +13,37 @@ const { data: page } = await useAsyncData(route.path, () => {
     .first()
 })
 
+const siteName = '青椒肉丝(Rose)'
+const fallbackDescription = computed(() => {
+  if (!page.value?.title)
+    return 'Rose\'s Blog'
+
+  return `${page.value.title} - Rose's Blog`
+})
+const pageDescription = computed(() => page.value?.description || fallbackDescription.value)
+const pageImage = computed(() => page.value?.image || '/avatar.jpeg')
+const pageType = computed(() => props.collection === 'blogs' ? 'article' : 'website')
+
+useSeoMeta({
+  title: () => page.value?.title || siteName,
+  description: pageDescription,
+  ogTitle: () => page.value?.title || siteName,
+  ogDescription: pageDescription,
+  ogImage: pageImage,
+  ogType: pageType,
+  twitterCard: 'summary_large_image',
+  twitterImage: pageImage,
+  articlePublishedTime: () => page.value?.date ? new Date(page.value.date).toISOString() : undefined,
+  articleModifiedTime: () => page.value?.date ? new Date(page.value.date).toISOString() : undefined,
+})
+
 const tocLinks = computed(() => {
   return page.value?.body?.toc?.links || []
 })
 </script>
 
 <template>
-  <div min-h-screen min-w-0 flex="~ col" py-6 sm:py-8 md:py-10 pt-0!>
+  <div min-h-screen min-w-0 flex="~ col" py-6 sm:py-8 md:py-10 class="pt-0!">
     <div flex="~" gap-8 md:gap-12>
       <article min-w-0 flex-1>
         <section class="prose prose-truegray dark:prose-invert max-w-full! text-justify pt-0 content-section">

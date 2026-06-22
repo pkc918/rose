@@ -29,7 +29,9 @@ onMounted(async () => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
           const idx = headingEls.indexOf(entry.target as HTMLElement)
-          if (idx !== -1) activeIndex.value = idx
+          if (idx !== -1) {
+            activeIndex.value = idx
+          }
           break
         }
       }
@@ -38,7 +40,9 @@ onMounted(async () => {
   )
 
   for (const el of headingEls) {
-    if (el) observer.observe(el)
+    if (el) {
+      observer.observe(el)
+    }
   }
 
   onBeforeUnmount(() => observer.disconnect())

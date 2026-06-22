@@ -6,10 +6,17 @@ export default defineNuxtConfig({
     '@nuxtjs/mdc',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
+    '@nuxtjs/seo',
   ],
   devtools: { enabled: true },
   routeRules: {
     '/': { prerender: true },
+  },
+  site: {
+    url: process.env.NUXT_SITE_URL,
+    name: '青椒肉丝(Rose)',
+    description: 'Rose\'s Blog',
+    defaultLocale: 'zh-CN',
   },
   css: ['~/assets/css/main.css'],
   content: {

@@ -1,0 +1,1 @@
+> SEO（Search Engine Optimization），搜索引擎优化旨在帮助搜索引擎了解我们网站的内容，并通过搜索引擎帮助用户检索到我们网站。

@@ -14,13 +14,15 @@ useHead({
 const title = '青椒肉丝(Rose)'
 const description = 'Rose\'s Blog'
 
-useSeoMeta({
+useServerSeoMeta({
   title,
   description,
   ogTitle: title,
   ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/changelog-light.png',
+  ogSiteName: title,
+  ogType: 'website',
+  ogImage: '/avatar.jpeg',
+  twitterImage: '/avatar.jpeg',
   twitterCard: 'summary_large_image',
 })
 </script>
