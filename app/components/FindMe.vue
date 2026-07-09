@@ -24,6 +24,7 @@
       </a>
 
       <a
+        href="https://discord.gg/JvFu49DYP"
         target="_blank"
         flex="~ items-center gap-1"
         text-xs sm:text-sm
