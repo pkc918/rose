@@ -1,7 +1,7 @@
 ---
 theme: z-blue
 highlight: agate
-title: 使用 opencv 对图片做头饰矫正
+title: 使用 opencv 对图片做透视矫正
 date: 2026-08-25
 ---
 
