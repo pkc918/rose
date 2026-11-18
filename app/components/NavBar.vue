@@ -2,57 +2,65 @@
 const colorMode = useColorMode()
 const isAnimating = ref(false)
 
+function getTransitionOrigin(event: MouseEvent) {
+  const target = event.currentTarget as HTMLElement | null
+  const bounds = target?.getBoundingClientRect()
+
+  if (event.detail > 0)
+    return { x: event.clientX, y: event.clientY }
+
+  if (bounds && bounds.width > 0 && bounds.height > 0)
+    return { x: bounds.left + bounds.width / 2, y: bounds.top + bounds.height / 2 }
+
+  return { x: innerWidth / 2, y: innerHeight / 2 }
+}
+
 async function toggleTheme(event: MouseEvent) {
   if (isAnimating.value)
     return
 
-  const isAppearanceTransition = document.startViewTransition
+  const nextMode = colorMode.value === 'dark' ? 'light' : 'dark'
+  const canAnimate = Boolean(document.startViewTransition)
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  if (!isAppearanceTransition) {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+  if (!canAnimate) {
+    colorMode.preference = nextMode
     return
   }
 
-  isAnimating.value = true
-
-  const x = event.clientX
-  const y = event.clientY
-  const endRadius = Math.hypot(
+  const root = document.documentElement
+  const { x, y } = getTransitionOrigin(event)
+  const radius = Math.hypot(
     Math.max(x, innerWidth - x),
     Math.max(y, innerHeight - y),
   )
+  let transition: ViewTransition | undefined
 
-  const transition = document.startViewTransition(async () => {
-    colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
-    await nextTick()
-  })
+  isAnimating.value = true
+  root.dataset.themeTransition = nextMode
+  root.style.setProperty('--theme-transition-x', `${x}px`)
+  root.style.setProperty('--theme-transition-y', `${y}px`)
+  root.style.setProperty('--theme-transition-radius', `${radius}px`)
 
-  transition.ready.then(() => {
-    const clipPath = [
-      `circle(0px at ${x}px ${y}px)`,
-      `circle(${endRadius}px at ${x}px ${y}px)`,
-    ]
-    document.documentElement.animate(
-      {
-        clipPath: colorMode.value === 'dark'
-          ? [...clipPath].reverse()
-          : clipPath,
-      },
-      {
-        duration: 400,
-        easing: 'ease-out',
-        fill: 'forwards',
-        pseudoElement: colorMode.value === 'dark'
-          ? '::view-transition-old(root)'
-          : '::view-transition-new(root)',
-      },
-    )
-  })
-
-  transition.finished.then(() => {
+  try {
+    transition = document.startViewTransition(async () => {
+      colorMode.preference = nextMode
+      await nextTick()
+    })
+    await transition.ready
+    await transition.finished
+  }
+  catch {
+    transition?.skipTransition()
+    colorMode.preference = nextMode
+  }
+  finally {
+    delete root.dataset.themeTransition
+    root.style.removeProperty('--theme-transition-x')
+    root.style.removeProperty('--theme-transition-y')
+    root.style.removeProperty('--theme-transition-radius')
     isAnimating.value = false
-  })
+  }
 }
 
 function backHome() {

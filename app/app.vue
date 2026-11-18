@@ -28,7 +28,7 @@ useServerSeoMeta({
 </script>
 
 <template>
-  <UApp class="font-['DM_Mono','monospace'] bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+  <UApp class="font-['DM_Mono','monospace'] bg-white dark:bg-black text-black dark:text-white">
     <!-- 移动端布局 -->
     <div class="md:hidden min-h-screen">
       <div class="pb-20">
@@ -57,7 +57,7 @@ useServerSeoMeta({
       <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10 bg-white dark:bg-black">
         <NavBar />
       </div>
-      <section grid="~ col-start-3 col-span-9 cols-[1fr_minmax(0,60rem)_1fr]" min-w-0>
+      <section grid="~ col-start-3 col-span-10 cols-[1fr_minmax(0,64rem)_1fr]" min-w-0>
         <div grid="~ col-start-2" px-6 min-w-0>
           <NuxtPage />
         </div>
