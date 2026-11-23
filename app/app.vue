@@ -53,18 +53,13 @@ useServerSeoMeta({
     </div>
 
     <!-- 桌面端布局 -->
-    <div class="hidden md:grid min-h-screen" grid="~ cols-12 auto-flow-col">
+    <div class="hidden md:grid min-h-screen mx-auto max-w-[100rem] grid-cols-[3.5rem_minmax(0,1fr)] gap-6 px-6 lg:grid-cols-[5rem_minmax(0,1fr)] lg:gap-10 lg:px-10">
       <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10 bg-white dark:bg-black">
         <NavBar />
       </div>
-      <section grid="~ col-start-3 col-span-10 cols-[1fr_minmax(0,64rem)_1fr]" min-w-0>
-        <div grid="~ col-start-2" px-6 min-w-0>
-          <NuxtPage />
-        </div>
+      <section min-w-0>
+        <NuxtPage />
       </section>
-      <div grid="~ col-span-2" class="text-gray-600 dark:text-gray-500">
-        <!-- Projects -->
-      </div>
     </div>
   </UApp>
 </template>
