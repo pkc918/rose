@@ -6,6 +6,7 @@ const props = defineProps<{
 }>()
 
 const route = useRoute()
+const article = ref<HTMLElement | null>(null)
 
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection(props.collection as any)
@@ -45,7 +46,7 @@ const tocLinks = computed(() => {
 <template>
   <div min-h-screen min-w-0 flex="~ col" py-6 sm:py-8 md:py-10 class="pt-0!">
     <div flex="~" gap-8 md:gap-12>
-      <article min-w-0 flex-1>
+      <article ref="article" min-w-0 flex-1>
         <section class="prose prose-truegray dark:prose-invert max-w-full! text-justify pt-0 content-section">
           <div class="mb-10 sm:mb-16 md:mb-20 blog-header">
             <h1 class="mb-0! text-black dark:text-white">
@@ -61,12 +62,17 @@ const tocLinks = computed(() => {
         </section>
       </article>
 
-      <TocSidebar v-if="tocLinks.length" :links="tocLinks" />
+      <TocSidebar v-if="tocLinks.length" :links="tocLinks" :article="article" />
     </div>
   </div>
 </template>
 
 <style scoped>
+.content-section :deep(h2),
+.content-section :deep(h3) {
+  scroll-margin-top: 6rem;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

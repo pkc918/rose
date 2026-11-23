@@ -3,26 +3,36 @@ interface TocLink {
   id: string
   depth: number
   text: string
+  children?: TocLink[]
 }
 
 const props = defineProps<{
   links: TocLink[]
+  article: HTMLElement | null
 }>()
 
 const activeIndex = ref<number | null>(null)
+const flatLinks = computed(() => {
+  function flatten(links: TocLink[]): TocLink[] {
+    return links.flatMap(link => [link, ...flatten(link.children || [])])
+  }
 
-// Build index: which heading DOM element corresponds to each TOC link
+  return flatten(props.links)
+})
+
+// Scope IDs to this article: desktop and mobile layouts render separate copies.
 function getHeadingElements(): (HTMLElement | null)[] {
-  const articleHeadings = document.querySelectorAll('article h2, article h3')
-  const headingArr = Array.from(articleHeadings) as HTMLElement[]
-  // Match TOC links to rendered headings by position
-  return props.links.map((_, i) => headingArr[i] || null)
+  const headings = props.article?.querySelectorAll<HTMLElement>('h2[id], h3[id]') || []
+  const headingsById = new Map(Array.from(headings, heading => [heading.id, heading]))
+  return flatLinks.value.map(link => headingsById.get(link.id) || null)
 }
 
-onMounted(async () => {
-  await nextTick()
-  await nextTick() // double tick ensures ContentRenderer has rendered
+watchPostEffect((onCleanup) => {
+  if (!import.meta.client || !props.article)
+    return
+
   const headingEls = getHeadingElements()
+  activeIndex.value = null
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -45,19 +55,16 @@ onMounted(async () => {
     }
   }
 
-  onBeforeUnmount(() => observer.disconnect())
+  onCleanup(() => observer.disconnect())
 })
 
 function scrollTo(index: number) {
   const headingEls = getHeadingElements()
   const el = headingEls[index]
   if (el) {
-    // Ensure heading has an id for URL hash
-    if (!el.id) {
-      el.id = props.links[index].id
-    }
-    el.scrollIntoView({ behavior: 'smooth' })
-    window.history.replaceState(null, '', `#${el.id}`)
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    activeIndex.value = index
+    window.history.replaceState(window.history.state, '', `#${encodeURIComponent(el.id)}`)
   }
 }
 </script>
@@ -73,12 +80,12 @@ function scrollTo(index: number) {
       </div>
       <ul flex="~ col" gap-1>
         <li
-          v-for="(link, index) in links"
+          v-for="(link, index) in flatLinks"
           :key="link.id"
           :style="{ paddingLeft: `${(link.depth - 2) * 0.75}rem` }"
         >
           <a
-            :href="`#${link.id}`"
+            :href="`#${encodeURIComponent(link.id)}`"
             block
             text-xs
             py-1
