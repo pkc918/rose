@@ -28,7 +28,7 @@ useServerSeoMeta({
 </script>
 
 <template>
-  <UApp class="font-['DM_Mono','monospace'] bg-white dark:bg-black text-black dark:text-white">
+  <div class="font-['DM_Mono','monospace'] bg-white dark:bg-black text-black dark:text-white">
     <!-- 移动端布局 -->
     <div class="md:hidden min-h-screen">
       <div class="pb-20">
@@ -53,7 +53,7 @@ useServerSeoMeta({
     </div>
 
     <!-- 桌面端布局 -->
-    <div class="hidden md:grid min-h-screen mx-auto max-w-[100rem] grid-cols-[3.5rem_minmax(0,1fr)] gap-6 px-6 lg:grid-cols-[5rem_minmax(0,1fr)] lg:gap-10 lg:px-10">
+    <div class="desktop-layout hidden md:grid min-h-screen mx-auto">
       <div flex="~ col justify-center items-center" class="h-[100vh] sticky top-0 z-10 bg-white dark:bg-black">
         <NavBar />
       </div>
@@ -61,5 +61,34 @@ useServerSeoMeta({
         <NuxtPage />
       </section>
     </div>
-  </UApp>
+  </div>
 </template>
+
+<style scoped>
+.desktop-layout {
+  --content-width: 50rem;
+  --menu-width: 3.5rem;
+  --menu-gap: 3rem;
+  --page-padding: 1.5rem;
+
+  grid-template-columns: var(--menu-width) minmax(0, 1fr);
+  gap: var(--menu-gap);
+  padding-inline: var(--page-padding);
+  max-width: calc(var(--content-width) + var(--menu-width) + var(--menu-gap) + var(--page-padding) * 2);
+}
+
+@media (min-width: 1024px) {
+  .desktop-layout {
+    --menu-width: 4rem;
+    --menu-gap: 5rem;
+    --page-padding: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* The article directory gets its own space outside the reading width. */
+  .desktop-layout:has(.article-toc) {
+    max-width: calc(var(--content-width) + var(--menu-width) + var(--menu-gap) + var(--page-padding) * 2 + 14rem + 3rem);
+  }
+}
+</style>

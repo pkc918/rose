@@ -72,7 +72,7 @@ function scrollTo(index: number) {
 <template>
   <aside
     v-if="links.length > 0"
-    class="hidden md:block w-48 lg:w-56 flex-shrink-0"
+    class="article-toc hidden xl:block w-56 flex-shrink-0"
   >
     <nav class="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto">
       <div text-xs font-semibold mb-3 class="text-gray-400 dark:text-gray-600">
