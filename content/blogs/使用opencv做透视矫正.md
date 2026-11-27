@@ -1,11 +1,12 @@
 ---
 theme: z-blue
 highlight: agate
-title: 使用 opencv 对图片做透视矫正
+title: 'OpenCV.js 透视矫正：用四个角点拉正图片'
+description: 在浏览器中用 OpenCV.js 读取图片，校验四个归一化角点，通过 getPerspectiveTransform 和 warpPerspective 完成透视矫正，并将结果输出为 Canvas。
 date: 2026-08-25
 ---
 
-按照图片边界点，对图片做透视矫正
+在浏览器中可以用 OpenCV.js 把照片里的倾斜区域拉正。先按左上、右上、右下、左下的顺序传入四个归一化角点，再用 `getPerspectiveTransform` 计算变换矩阵，最后用 `warpPerspective` 把四边形映射到矩形。下面的 TypeScript 示例也包含角点校验、输出尺寸计算和 OpenCV 矩阵释放。
 
 ```ts
 

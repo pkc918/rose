@@ -1,6 +1,6 @@
 ---
 title: 青椒肉丝
-description: Rose(肉丝)'s Portfolio
+description: 青椒肉丝（Rose）是杭州的前端开发者，在这里分享 TypeScript、Nuxt、AI 工具和实际项目中的开发经验。
 art: random
 ---
 

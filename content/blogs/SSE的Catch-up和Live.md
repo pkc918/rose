@@ -1,11 +1,14 @@
 ---
-title: SSE的Catch-up和Live的实现
+title: 'SSE 断线恢复：实现 AI 聊天的历史补发与实时流'
+description: 以 AI 聊天为例，解释如何用 SSE 的 Catch-up 补发断线期间的历史事件，并平滑切换到 Live 流，让用户重新打开会话后继续接收回复。
 date: 2026-06-03
 ---
 
 ## 前言
 
 在实现 AI Chat 系统时，遇到了对应的问题，就是 SSE 在前端中断后，数据存储与页面恢复的问题。看到ChatGPT的实现，SSE 的过程中关闭网页后，再次打开，进入对应的 conversation，依然能拿到关闭前的SSE数据（这个过程就是 Catch-up。ps：后面会讲），且如果再次打开会话经过 Catch-up 阶段后，SSE还在持续输出内容，ChatGPT 依然会连续输出。我大为震撼，因为我的Chat，关闭后SSE数据就丢失了（ps：现在已经可以了）。所以有了这篇文章。
+
+如果想先了解聊天界面为什么逐段显示内容，可以阅读 [AI 回复的流式与非流式响应](/diaries/2026-05-25)。
 
 ## SSE，Catch-up，Live这些是什么？
 

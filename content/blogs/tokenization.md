@@ -1,6 +1,8 @@
 ---
-title: What is a Token?
+title: 'What Is a Token? Tokenization in LLM Training and Inference'
+description: Learn how tokenizers split text into model inputs, why tokens differ from words, and how token counts shape training, inference, and context windows.
 date: 2026-04-02
+lang: en
 ---
 
 Tokens are units of data processed by AI models during training and inference, enabling prediction, generation and reasoning.

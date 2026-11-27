@@ -1,5 +1,15 @@
 import { defineCollection, defineContentConfig } from '@nuxt/content'
+import { defineSitemapSchema } from '@nuxtjs/sitemap/content'
 import { z } from 'zod'
+
+const articleSchema = z.object({
+  image: z.string().optional(),
+  date: z.date().optional(),
+  updatedAt: z.date().optional(),
+  lang: z.string().default('zh-CN'),
+  duration: z.string().optional(),
+  sitemap: defineSitemapSchema({ z }),
+})
 
 export default defineContentConfig({
   collections: {
@@ -10,26 +20,12 @@ export default defineContentConfig({
     blogs: defineCollection({
       type: 'page',
       source: 'blogs/*.md',
-      schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        image: z.string().optional(),
-        date: z.date(),
-        lang: z.string().default('zh-CN'),
-        duration: z.string().optional(),
-      }),
+      schema: articleSchema,
     }),
     diaries: defineCollection({
       type: 'page',
       source: 'diaries/*.md',
-      schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        image: z.string().optional(),
-        date: z.date(),
-        lang: z.string().default('zh-CN'),
-        duration: z.string().optional(),
-      }),
+      schema: articleSchema,
     }),
   },
 })

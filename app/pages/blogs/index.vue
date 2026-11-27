@@ -1,12 +1,10 @@
 <script setup lang="ts">
-const { data: blogs } = await useAsyncData('xxx', async () => {
-  const allBlogs = await queryCollection('blogs' as any).all()
-  // 按日期降序排序，最新的在最上方
-  return allBlogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+const { data: blogs } = await useAsyncData('blogs:index', () => {
+  return queryCollection('blogs').select('path', 'title', 'date', 'lang', 'duration').order('date', 'DESC').all()
 })
 
-const title = 'Blogs'
-const description = 'Articles about frontend, AI, tooling, and notes from Rose.'
+const title = '技术博客'
+const description = '青椒肉丝的技术文章与代码示例，涵盖 Nuxt、TypeScript、SSE 流式响应、OpenCV.js、REST API 和 AI 开发工具。'
 
 useSeoMeta({
   title,
@@ -30,12 +28,12 @@ function getLangLabel(lang: string) {
 <template>
   <div min-h-screen flex="~ col" py-6 sm:py-8 md:py-10 pt-6 md:pt-40>
     <h1 class="text-5xl font-bold mb-10">
-      Blogs
+      {{ title }}
     </h1>
     <div flex="~ col" gap-3 max-w-4xl w-full>
       <NuxtLink
         v-for="(blog, index) in blogs"
-        :key="blog.title"
+        :key="blog.path"
         :to="blog.path"
         flex="~ items-center justify-between sm:justify-start gap-2"
         py-2

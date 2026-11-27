@@ -1,7 +1,8 @@
 ---
 theme: z-blue
 highlight: agate
-title: What are Skills?
+title: Agent Skills 是什么？Claude 如何按需加载技能
+description: 从 Claude 的使用场景出发，解释 Agent Skills 如何按需加载元数据、SKILL.md 指令和辅助资源，以及自定义技能在 Claude 和 Cursor 中放在哪里。
 date: 2026-01-18
 ---
 
@@ -77,3 +78,5 @@ pdf-skill/
 自定义的skill需要放在特定的文件夹中
 - Claude: `.claude/skills/`
 - Cursor: `.cursor/skills/`
+
+准备编写自己的技能时，可以接着看 [SKILL.md 编写指南](/blogs/skill-guide)，了解 frontmatter、指令和示例的写法。

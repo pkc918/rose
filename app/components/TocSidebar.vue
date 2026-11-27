@@ -20,7 +20,6 @@ const flatLinks = computed(() => {
   return flatten(props.links)
 })
 
-// Scope IDs to this article: desktop and mobile layouts render separate copies.
 function getHeadingElements(): (HTMLElement | null)[] {
   const headings = props.article?.querySelectorAll<HTMLElement>('h2[id], h3[id]') || []
   const headingsById = new Map(Array.from(headings, heading => [heading.id, heading]))

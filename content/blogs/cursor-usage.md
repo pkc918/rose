@@ -1,5 +1,6 @@
 ---
-title: Cursor一些实用的姿势
+title: 'Cursor 使用技巧：Plan Mode、Rules、@ 引用与 Hooks'
+description: 整理在 Cursor 中补充上下文、用 Plan Mode 拆解任务、通过 @ 引用文件和文档，以及配置 Rules、Commands、Hooks、忽略文件和 MCP 的实用做法。
 date: 2025-11-12
 ---
 

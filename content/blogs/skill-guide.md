@@ -1,11 +1,12 @@
 ---
 theme: z-blue
 highlight: agate
-title: How to write a SKILL.md
+title: '如何编写 SKILL.md：Agent Skills 的结构、指令与示例'
+description: 结合 PDF 提取、代码审查和数据库迁移示例，说明如何编写 SKILL.md 的 name、description、操作指令，以及怎样按任务风险调整指令的细致程度。
 date: 2026-01-18
 ---
 
-see[技能创作最佳实践](https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/best-practices)
+如果你刚接触 Agent Skills，可以先了解 [Agent Skills 的结构与加载方式](/blogs/agent-skills)。本文的示例参考了 [Claude 技能创作最佳实践](https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/best-practices)。
 
 ## Skill 结构与内容规范
 

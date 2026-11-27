@@ -4,6 +4,11 @@ import type { NuxtError } from '#app'
 const props = defineProps({
   error: Object as () => NuxtError,
 })
+
+useSeoMeta({
+  title: () => props.error?.statusCode === 404 ? '404 - 页面未找到' : '页面加载失败',
+  robots: 'noindex',
+})
 </script>
 
 <template>

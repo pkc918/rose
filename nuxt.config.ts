@@ -1,22 +1,36 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const siteUrl = process.env.NUXT_SITE_URL
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   modules: [
+    '@nuxtjs/seo',
     '@nuxt/content',
     '@nuxtjs/mdc',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
-    '@nuxtjs/seo',
   ],
   devtools: { enabled: true },
   routeRules: {
-    '/': { prerender: true },
+    '/resume': { robots: false },
+  },
+  nitro: {
+    prerender: siteUrl
+      ? { routes: ['/', '/sitemap.xml', '/robots.txt'], crawlLinks: true }
+      : {},
   },
   site: {
-    url: process.env.NUXT_SITE_URL,
+    url: siteUrl,
     name: '青椒肉丝(Rose)',
-    description: 'Rose\'s Blog',
+    description: '青椒肉丝的个人博客，记录前端开发、Nuxt、TypeScript、AI 工具和工程实践。',
     defaultLocale: 'zh-CN',
+  },
+  seo: {
+    canonicalQueryWhitelist: [],
+    canonicalLowercase: false,
+  },
+  schemaOrg: {
+    reactive: true,
   },
   css: ['~/assets/css/main.css'],
   content: {

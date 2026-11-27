@@ -1,7 +1,8 @@
 ---
 theme: z-blue
 highlight: agate
-title: mpc-plus 依赖注入架构设计
+title: 'mpc-plus 架构设计：用依赖注入支持微信和抖音小程序部署'
+description: 拆解 mpc-plus 的多平台部署架构，说明 Core 如何定义平台协议，Standard 如何注册微信和抖音适配器，以及 CLI 和 TUI 如何共享配置与执行流程。
 date: 2026-08-27
 ---
 

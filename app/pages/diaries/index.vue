@@ -1,12 +1,10 @@
 <script setup lang="ts">
-const { data: diaries } = await useAsyncData('xxx', async () => {
-  const allDiaries = await queryCollection('diaries' as any).all()
-  // 按日期降序排序，最新的在最上方
-  return allDiaries.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+const { data: diaries } = await useAsyncData('diaries:index', () => {
+  return queryCollection('diaries').select('path', 'title', 'date', 'lang', 'duration').order('date', 'DESC').all()
 })
 
-const title = 'Diaries'
-const description = 'Personal diaries and everyday notes from Rose.'
+const title = '开发随记'
+const description = '青椒肉丝的开发随记，记录 Vue 组件设计、Nuxt 项目重构、MathJax 公式渲染和 AI 模型的学习笔记。'
 
 useSeoMeta({
   title,
@@ -30,12 +28,12 @@ function getLangLabel(lang: string) {
 <template>
   <div min-h-screen flex="~ col" py-6 sm:py-8 md:py-10 pt-6 md:pt-40>
     <h1 class="text-5xl font-bold mb-10">
-      Diaries
+      {{ title }}
     </h1>
     <div flex="~ col" gap-3 max-w-4xl w-full>
       <NuxtLink
         v-for="(diary, index) in diaries"
-        :key="diary.title"
+        :key="diary.path"
         :to="diary.path"
         flex="~ items-center justify-between sm:justify-start gap-2"
         py-2

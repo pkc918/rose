@@ -1,6 +1,8 @@
 ---
-title: What is a REST API?
+title: 'What Is a REST API? Constraints, HTTP Methods, and Examples'
+description: Learn how REST APIs model resources, use HTTP methods and status codes, and handle caching, pagination, versioning, and errors.
 date: 2026-04-01
+lang: en
 ---
 
 [source](https://blog.postman.com/rest-api-examples/#what-is-a-rest-api)

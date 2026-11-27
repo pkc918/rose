@@ -1,7 +1,18 @@
 <script setup lang="ts">
-const { data: indexContent } = await useAsyncData('index', () => queryCollection('index' as any).first())
-nextTick(() => {
-  console.log('indexContent', indexContent.value)
+const { data: indexContent } = await useAsyncData('index', () => queryCollection('index').first())
+
+const title = '青椒肉丝 Rose 的技术博客'
+const description = computed(() => indexContent.value?.description)
+
+useHead({ titleTemplate: '%s' })
+useSeoMeta({
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
+  ogImage: '/avatar.jpeg',
+  twitterCard: 'summary',
+  twitterImage: '/avatar.jpeg',
 })
 </script>
 
